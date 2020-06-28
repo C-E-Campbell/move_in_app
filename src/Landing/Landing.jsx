@@ -4,6 +4,9 @@ import axios from 'axios';
 export default function Landing() {
   const [email, SetEmail] = useState('');
   const [pass, SetPass] = useState('');
+  const [confirmPass, SetConfirmPass] = useState('');
+  const [registerFlag, SetRegisterFlag] = useState(false);
+  const [name, SetName] = useState('');
 
   const login = (e) => {
     e.preventDefault();
@@ -24,10 +27,19 @@ export default function Landing() {
       </div>
       <div>
         <form className="login_form" onSubmit={(e) => login(e)}>
+          {registerFlag === false ? null : (
+            <input
+              onChange={(e) => SetName(e.target.value)}
+              type="text"
+              placeholder="Name"
+              value={name}
+              className="login_input"
+            />
+          )}
           <input
             onChange={(e) => SetEmail(e.target.value)}
             type="text"
-            placeholder="Username"
+            placeholder="Email"
             value={email}
             className="login_input"
           />
@@ -38,14 +50,25 @@ export default function Landing() {
             value={pass}
             className="login_input"
           />
+          {registerFlag === false ? null : (
+            <input
+              onChange={(e) => SetConfirmPass(e.target.value)}
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPass}
+              className="login_input"
+            />
+          )}
           <button className="login_btn" type="submit">
             Login
           </button>
         </form>
 
         <div className="forgot_login">
-          <button>Register</button>
-          <button>Forgot Login Details</button>
+          <button onClick={() => SetRegisterFlag(!registerFlag)}>
+            Register
+          </button>
+          <button>Need Help?</button>
         </div>
       </div>
     </div>
