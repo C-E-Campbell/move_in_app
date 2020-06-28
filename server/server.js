@@ -22,7 +22,7 @@ massive({
 
 // MIDDLEWARE & ROUTES
 app.use(express.json());
-app.use('/v1/auth', router);
+app.use('api/v1/auth', router);
 
 app.listen(PORT, () => {
   console.log(`Server Live`);
