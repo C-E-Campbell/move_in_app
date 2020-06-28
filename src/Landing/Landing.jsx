@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Landing.scss';
 import axios from 'axios';
+import moveIn from '../assets/logo.png';
 export default function Landing() {
   const [email, SetEmail] = useState('');
   const [pass, SetPass] = useState('');
@@ -13,10 +14,17 @@ export default function Landing() {
     if (!email || !pass) {
       alert('enter form values');
     } else {
-      axios.get('/login', {
-        email,
-        pass,
-      });
+      axios
+        .post('/api/v1/auth/login', {
+          username: email,
+          pass,
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
   return (
@@ -71,6 +79,7 @@ export default function Landing() {
           <button>Need Help?</button>
         </div>
       </div>
+      <div className="landing_logoBox"></div>
     </div>
   );
 }
