@@ -11,9 +11,9 @@ export default function Pick() {
   return (
     <div className="pick_container">
       <div className="pick_header">
-        <i onClick={() => toLogin()} class="fas fa-chevron-left"></i>
+        <i onClick={() => toLogin()} className="fas fa-chevron-left"></i>
         <h1>WELCOME</h1>
-        <i class="fas fa-ellipsis-v"></i>
+        <i className="fas fa-ellipsis-v"></i>
       </div>
       <div className="pick_inner_container">
         <div className="pick_user_welcome">
