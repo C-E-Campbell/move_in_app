@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Landing.scss';
-import axios from 'axios';
+//import axios from 'axios';
 export default function Landing(props) {
   let history = useHistory();
   const [email, SetEmail] = useState('');
