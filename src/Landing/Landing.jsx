@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Landing.scss';
 import axios from 'axios';
-export default function Landing() {
+export default function Landing(props) {
+  let history = useHistory();
   const [email, SetEmail] = useState('');
   const [pass, SetPass] = useState('');
   const [confirmPass, SetConfirmPass] = useState('');
@@ -10,22 +12,23 @@ export default function Landing() {
 
   const login = (e) => {
     e.preventDefault();
-    if (!email || !pass) {
-      alert('enter form values');
-    } else {
-      axios
-        .post('/api/v1/auth/login', {
-          username: email,
-          pass,
-        })
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    history.push('/choose');
+    // if (!email || !pass) {
+    //   alert('enter form values');
+    // } else {
+    //   axios
+    //     .post('/api/v1/auth/login', {
+    //       username: email,
+    //       pass,
+    //     })
+    //     .then((data) => {
+    //       console.log(data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
   };
+
   return (
     <div className="landing_container">
       <div className="landing_logoBox"></div>
