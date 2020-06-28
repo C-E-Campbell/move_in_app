@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Landing.scss';
 import axios from 'axios';
-import moveIn from '../assets/logo.png';
 export default function Landing() {
   const [email, SetEmail] = useState('');
   const [pass, SetPass] = useState('');
