@@ -18,25 +18,34 @@ export default function Landing() {
   };
   return (
     <div className="landing">
-      <h1>Find your ideal roomates!</h1>
-      <h2>Have you been looking for the right roomate?</h2>
-      <form onSubmit={(e) => login(e)}>
+      <div>
+        <h1>Find your ideal roomates!</h1>
+        <h2>Have you been looking for the right roomate?</h2>
+      </div>
+
+      <form className="login_form" onSubmit={(e) => login(e)}>
         <input
           onChange={(e) => SetEmail(e.target.value)}
           type="text"
           placeholder="Username"
           value={email}
+          className="login_input"
         />
         <input
           onChange={(e) => SetPass(e.target.value)}
           type="password"
           placeholder="Password"
           value={pass}
+          className="login_input"
         />
-        <button type="submit">Login</button>
+        <button className="login_btn" type="submit">
+          Login
+        </button>
       </form>
-      <a href="#">Register</a>
-      <a href="#">Forgot Login Details</a>
+      <div className="forgot_login">
+        <a href="#">Register</a>
+        <a href="#">Forgot Login Details</a>
+      </div>
     </div>
   );
 }

@@ -7,7 +7,21 @@ dateCreated DATE
 )
 
 /* 
-SEED DATA: 
+SEED DATA FOR TESTING: 
 INSERT INTO users (commonname, username, pass, dateCreated)
-VALUES ('Charles Campbell', 'ccamp290', 'rufus0606', '6/27/2020') 
+VALUES ('test man', 'test123', '123', '6/27/2020') 
+*/
+
+/*
+HARD RESET BEFORE LIVE (Drop and Recreate)
+DROP TABLES users
+
+CREATE TABLE users(
+id SERIAL PRIMARY KEY, 
+commonname VARCHAR NOT NULL,
+username VARCHAR NOT NULL UNIQUE,
+pass VARCHAR NOT NULL,
+dateCreated DATE
+)
+
 */
