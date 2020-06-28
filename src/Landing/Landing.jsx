@@ -44,8 +44,8 @@ export default function Landing() {
         </form>
 
         <div className="forgot_login">
-          <a href="#">Register</a>
-          <a href="#">Forgot Login Details</a>
+          <button>Register</button>
+          <button>Forgot Login Details</button>
         </div>
       </div>
     </div>

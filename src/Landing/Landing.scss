@@ -86,9 +86,15 @@
   margin: 30px auto;
 
   justify-content: space-evenly;
-  a {
+  button {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
+    background: none;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
