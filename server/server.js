@@ -2,12 +2,12 @@ require('dotenv').config({ path: '../.env' });
 const express = require('express');
 const app = express();
 const massive = require('massive');
-const jwt = require('jsonwebtoken');
-const { PORT, CONN, TOKEN } = process.env;
+const { PORT, CONN } = process.env;
+const router = require('./contollers/auth.js');
 
 // MIDDLEWARE
 app.use(express.json());
-
+app.use('/v1/auth', router);
 //CONNECT TO DB
 massive({
   connectionString: CONN,
@@ -23,29 +23,10 @@ massive({
     console.log(err);
   });
 
-app.post('/v1/login', (req, res) => {
-  const db = req.app.get('db');
-  const { username, pass } = req.body;
-
-  const result = db.get_user([username, pass]).catch((err) => {
-    console.log(err);
-  });
-  if (result) {
-    const accessToken = jwt.sign({ username: result.commonname }, TOKEN);
-    res.json({ accessToken }).status(200);
-  }
-});
-
-app.post('/v1/register', (req, res) => {
-  const db = req.app.get('db');
-  const { commonname, username, pass, date } = req.body;
-
-  const result = db
-    .add_new_user([commonname, username, pass, date])
-    .catch((err) => {
-      res.json('username taken').status(409);
-    });
-});
+// app.get('/v1/posts', jwtAuth, (req, res) => {
+//   console.log(req.user);
+//   res.json('helloooo');
+// });
 
 app.listen(PORT, () => {
   console.log(`Server Live`);
