@@ -83,6 +83,16 @@ export default function Landing(props) {
             <button>Need Help?</button>
           </div>
         </div>
+        <div className="social_box">
+          <h4>Login Using</h4>
+          <div className="social_login">
+            <span className="social_span"></span>
+            <i className="fab fa-google"></i>
+            <i className="fab fa-linkedin-in"></i>
+            <i className="fab fa-facebook-f"></i>
+            <span className="social_span"></span>
+          </div>
+        </div>
       </div>
     </div>
   );
