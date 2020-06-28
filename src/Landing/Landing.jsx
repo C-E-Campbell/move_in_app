@@ -69,13 +69,13 @@ export default function Landing() {
               />
             )}
             <button className="login_btn" type="submit">
-              Login
+              {registerFlag === false ? 'Login' : 'Register'}
             </button>
           </form>
 
           <div className="forgot_login">
             <button onClick={() => SetRegisterFlag(!registerFlag)}>
-              Register
+              {registerFlag === false ? 'Register' : 'Login'}
             </button>
             <button>Need Help?</button>
           </div>
