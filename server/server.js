@@ -5,9 +5,6 @@ const massive = require('massive');
 const { PORT, CONN } = process.env;
 const router = require('./contollers/auth.js');
 
-// MIDDLEWARE
-app.use(express.json());
-app.use('/v1/auth', router);
 //CONNECT TO DB
 massive({
   connectionString: CONN,
@@ -23,10 +20,9 @@ massive({
     console.log(err);
   });
 
-// app.get('/v1/posts', jwtAuth, (req, res) => {
-//   console.log(req.user);
-//   res.json('helloooo');
-// });
+// MIDDLEWARE & ROUTES
+app.use(express.json());
+app.use('/v1/auth', router);
 
 app.listen(PORT, () => {
   console.log(`Server Live`);
