@@ -1,15 +1,27 @@
 require('dotenv').config({ path: '../.env' });
 const express = require('express');
 const app = express();
+const massive = require('massive');
 const jwt = require('jsonwebtoken');
 const { PORT, CONN, TOKEN } = process.env;
-import connectDb from './Utilities/Conn_to_Db';
 
 // MIDDLEWARE
 app.use(express.json());
 
 //CONNECT TO DB
-connectDb(CONN);
+massive({
+  connectionString: CONN,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+})
+  .then((dbInstance) => {
+    app.set('db', dbInstance);
+    console.log('Db Connected');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.post('/v1/login', (req, res) => {
   const db = req.app.get('db');
@@ -34,6 +46,7 @@ app.post('/v1/register', (req, res) => {
       res.json('username taken').status(409);
     });
 });
+
 app.listen(PORT, () => {
   console.log(`Server Live`);
 });
