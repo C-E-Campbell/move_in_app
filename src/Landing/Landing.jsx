@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Landing.scss';
-//import axios from 'axios';
+import axios from 'axios';
 export default function Landing(props) {
   let history = useHistory();
   const [email, SetEmail] = useState('');
@@ -12,21 +12,21 @@ export default function Landing(props) {
 
   const login = (e) => {
     e.preventDefault();
-    history.push('/choose');
-    // if (!email || !pass) {
-    //   alert('enter form values');
-    // } else {
-    //   axios
-    //     .post('/api/v1/auth/login', {
-    //       username: email,
-    //       pass,
-    //     })
-    //     .then((data) => {
-    //       console.log(data);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
+    //history.push('/choose');
+
+    axios
+      .post('/api/v1/auth/login', {
+        username: email,
+        pass,
+      })
+      .then((data) => {
+        if (data.data.accessToken) {
+          history.push('/choose');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -34,7 +34,15 @@ export default function Landing(props) {
       <div className="landing_logoBox"></div>
       <div className="landing">
         <div className="landing_headline">
-          <h1>Find your ideal roomates!</h1>
+          <h1>
+            {!email && !pass
+              ? 'Find your ideal roommates!'
+              : email && pass
+              ? 'Find a roomate quickly'
+              : email
+              ? 'Feel safe and secure'
+              : 'Find your ideal roommates!'}
+          </h1>
           <h2>Have you been looking for the right roomate?</h2>
         </div>
         <div>
