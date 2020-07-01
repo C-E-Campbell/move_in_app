@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Landing.scss';
-import axios from 'axios';
+//import axios from 'axios';
 export default function Landing(props) {
   let history = useHistory();
   const [email, SetEmail] = useState('');
@@ -12,39 +12,40 @@ export default function Landing(props) {
 
   const login = (e) => {
     e.preventDefault();
-    axios
-      .post('/api/v1/auth/login', {
-        username: email,
-        pass,
-      })
-      .then((data) => {
-        if (data.data.accessToken) {
-          history.push('/choose');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    history.push('/choose');
+    // axios
+    //   .post('/api/v1/auth/login', {
+    //     username: email,
+    //     pass,
+    //   })
+    //   .then((data) => {
+    //     if (data.data.accessToken) {
+    //       history.push('/choose');
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   const register = (e) => {
     e.preventDefault();
-
-    axios
-      .post('/api/v1/auth/register', {
-        commonname: name,
-        username: email,
-        pass: pass,
-      })
-      .then((data) => {
-        console.log(data);
-        SetEmail('');
-        SetPass('');
-        SetRegisterFlag(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    history.push('/choose');
+    // axios
+    //   .post('/api/v1/auth/register', {
+    //     commonname: name,
+    //     username: email,
+    //     pass: pass,
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     SetEmail('');
+    //     SetPass('');
+    //     SetRegisterFlag(false);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
@@ -113,7 +114,6 @@ export default function Landing(props) {
           </div>
         </div>
         <div className="social_box">
-          <h4>Login Using</h4>
           <div className="social_login">
             <span className="social_span"></span>
             <i className="fab fa-google"></i>
