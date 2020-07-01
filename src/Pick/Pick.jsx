@@ -8,6 +8,10 @@ export default function Pick() {
     history.push('/');
   };
 
+  const toDashboard = () => {
+    history.push('/Dashboard');
+  };
+
   return (
     <div className="pick_container">
       <div className="pick_header">
@@ -19,10 +23,10 @@ export default function Pick() {
         <div className="pick_user_welcome">
           Welcome,<span>User!</span>
         </div>
-        <button className="pick_btn">
+        <button onClick={() => toDashboard()} className="pick_btn">
           <span>Mover</span>I need to find a room
         </button>
-        <button className="pick_btn">
+        <button onClick={() => toDashboard()} className="pick_btn">
           <span>Lister</span>I have a room to list
         </button>
       </div>

@@ -43,14 +43,14 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', (req, res) => {
   const db = req.app.get('db');
-  const { commonname, username, pass, date } = req.body;
+  const { commonname, username, pass } = req.body;
   const hash = bcrypt.hashSync(pass, 11);
-  db.add_new_user([commonname, username, hash, date])
+  db.add_new_user([commonname, username, hash])
     .then(() => {
       res.sendStatus(200);
     })
-    .catch(() => {
-      res.json('username taken').status(409);
+    .catch((err) => {
+      res.send(err).json('username taken').status(409);
     });
 });
 

@@ -12,8 +12,6 @@ export default function Landing(props) {
 
   const login = (e) => {
     e.preventDefault();
-    //history.push('/choose');
-
     axios
       .post('/api/v1/auth/login', {
         username: email,
@@ -23,6 +21,26 @@ export default function Landing(props) {
         if (data.data.accessToken) {
           history.push('/choose');
         }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+
+    axios
+      .post('/api/v1/auth/register', {
+        commonname: name,
+        username: email,
+        pass: pass,
+      })
+      .then((data) => {
+        console.log(data);
+        SetEmail('');
+        SetPass('');
+        SetRegisterFlag(false);
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +64,10 @@ export default function Landing(props) {
           <h2>Have you been looking for the right roomate?</h2>
         </div>
         <div>
-          <form className="login_form" onSubmit={(e) => login(e)}>
+          <form
+            className="login_form"
+            onSubmit={!registerFlag ? (e) => login(e) : (e) => register(e)}
+          >
             {registerFlag === false ? null : (
               <input
                 onChange={(e) => SetName(e.target.value)}

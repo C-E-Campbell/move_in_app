@@ -3,7 +3,7 @@ id SERIAL PRIMARY KEY,
 commonname VARCHAR NOT NULL,
 username VARCHAR NOT NULL UNIQUE,
 pass VARCHAR NOT NULL,
-dateCreated DATE
+dateCreated DATE DEFAULT CURRENT_DATE
 )
 
 /* 
