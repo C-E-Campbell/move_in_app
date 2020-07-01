@@ -9,7 +9,7 @@ export default function Dashboard() {
   };
   return (
     <div className="dashboard_container">
-      <div className="pick_header">
+      <div className="dash-header">
         <i onClick={() => toLogin()} className="fas fa-chevron-left"></i>
         <h1>DASHBOARD</h1>
         <i className="fas fa-ellipsis-v"></i>
@@ -21,9 +21,14 @@ export default function Dashboard() {
           </div>
           <div className="default_pic"></div>
         </div>
-        <div className="dash-menu">
-          <MenuItem headline={'Messages'} description={'View your messages'} />
+        <div className="dash-menu ">
           <MenuItem
+            className="item-1"
+            headline={'Messages'}
+            description={'View your messages'}
+          />
+          <MenuItem
+            className="item-2"
             headline={'Candidates'}
             description={'View your potential new roommates'}
           />
@@ -38,7 +43,7 @@ export default function Dashboard() {
         </div>
       </div>
       <section className="sub-menu">
-        <div className="sub-menu-item">
+        <div className="sub-menu-item ">
           <i className="sub-icons  fas fa-home"></i>
           <h5>My Listing</h5>
         </div>
