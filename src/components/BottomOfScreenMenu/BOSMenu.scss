@@ -1,0 +1,37 @@
+.sub-menu {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sub-icons {
+  font-size: 35px;
+  color: #333;
+}
+
+.sub-menu-item {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  h5 {
+    font-size: 12px;
+  }
+  div {
+    margin: 0 auto;
+  }
+}
+.small_default_pic {
+  background-image: url('../../assets/default.png');
+  background-position: center;
+  background-size: cover;
+  height: 38px;
+  width: 38px;
+}
+
+.fa-th {
+  color: #2f00a7;
+}

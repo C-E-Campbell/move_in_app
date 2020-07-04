@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import MenuItem from './MenuItem';
+import BOSMenu from '../components/BottomOfScreenMenu/BOSMenu';
 import './Dashboard.scss';
 export default function Dashboard() {
   let history = useHistory();
@@ -46,28 +47,7 @@ export default function Dashboard() {
           />
         </div>
       </div>
-      <section className="sub-menu">
-        <div className="sub-menu-item ">
-          <i className="sub-icons  fas fa-home"></i>
-          <h5>My Listing</h5>
-        </div>
-        <div className="sub-menu-item">
-          <i className="sub-icons fas fa-user-friends"></i>
-          <h5>Candidates</h5>
-        </div>
-        <div className="sub-menu-item">
-          <i className="sub-icons fas fa-th"></i>
-          <h5>Main</h5>
-        </div>
-        <div className="sub-menu-item">
-          <i className="sub-icons far fa-comment"></i>
-          <h5>Messages</h5>
-        </div>
-        <div className="sub-menu-item">
-          <div className="small_default_pic"></div>
-          <h5>Dashboard</h5>
-        </div>
-      </section>
+      <BOSMenu />
     </div>
   );
 }
