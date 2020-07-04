@@ -29,10 +29,11 @@
 }
 .dash_welcome {
   height: 15vh;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   padding-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .dash_user_welcome {
@@ -56,7 +57,37 @@
 }
 
 .dash-menu {
-  width: 100%;
+  width: 90vw;
+  margin: 0 auto;
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(9, 1fr);
+
+  :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+  :nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+  :nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 10;
+  }
+  :nth-child(4) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 10;
+  }
 }
 .sub-menu {
   height: 10vh;
