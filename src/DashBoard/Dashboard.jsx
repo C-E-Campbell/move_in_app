@@ -23,20 +23,24 @@ export default function Dashboard() {
         </div>
         <div className="dash-menu ">
           <MenuItem
+            goToPage={'/Messages'}
             className="item-1"
             headline={'Messages'}
             description={'View your messages'}
           />
           <MenuItem
+            goToPage={'/Candidates'}
             className="item-2"
             headline={'Candidates'}
             description={'View your potential new roommates'}
           />
           <MenuItem
+            goToPage={'/Listings'}
             headline={'My Listings'}
             description={'View and message your listing'}
           />
           <MenuItem
+            goToPage={'/Profile'}
             headline={'My Profile'}
             description={'View and edit your profile'}
           />

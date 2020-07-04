@@ -8,7 +8,7 @@ export default function MenuItem(props) {
     history.push(link);
   };
   return (
-    <div className="menuItem_Container">
+    <div className="menuItem_Container" onClick={() => move(props.goToPage)}>
       <div>
         <h1>{props.headline}</h1>
         <h3>{props.description}</h3>
@@ -16,7 +16,6 @@ export default function MenuItem(props) {
 
       <i
         style={{ color: '#2f00a7' }}
-        onClick={() => move(props.goToPage)}
         className="fas fa-chevron-circle-right fa-lg"
       ></i>
     </div>
