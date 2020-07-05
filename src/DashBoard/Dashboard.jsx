@@ -30,7 +30,7 @@ export default function Dashboard() {
           <MenuItem
             goToPage={'/Listings'}
             headline={'My Listings'}
-            description={'View and message your listing'}
+            description={'View and manage your listing'}
           />
           <MenuItem
             goToPage={'/Profile'}
