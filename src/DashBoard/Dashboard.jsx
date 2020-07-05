@@ -1,20 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import MenuItem from './MenuItem';
 import BOSMenu from '../components/BottomOfScreenMenu/BOSMenu';
+import Headline from '../components/Headline/Headline';
 import './Dashboard.scss';
 export default function Dashboard() {
-  let history = useHistory();
-  const toLogin = () => {
-    history.push('/choose');
-  };
   return (
     <div className="dashboard_container">
-      <div className="dash-header">
-        <i onClick={() => toLogin()} className="fas fa-chevron-left fa-lg"></i>
-        <h1>DASHBOARD</h1>
-        <i className="fas fa-ellipsis-v fa-lg"></i>
-      </div>
+      <Headline Headline="DASHBOARD" goToPage="/Choose" />
       <div className="dashboard_inner_container">
         <div className="dash_welcome">
           <div className="dash_user_welcome">

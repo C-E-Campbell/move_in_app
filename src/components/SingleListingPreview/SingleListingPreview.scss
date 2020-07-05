@@ -1,0 +1,68 @@
+.listingContainer {
+  margin: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.imgBG {
+  background-image: url('../../assets/bedroom-2631746.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25vh;
+  border-radius: 10px 8px 0px 0px;
+}
+
+.listingTextContainer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Noto Sans JP', sans-serif;
+
+  h4 {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+}
+
+.textHeadline {
+  display: flex;
+  justify-content: space-between;
+  h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: 2px solid #2f00a7;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 4px 6px;
+  }
+
+  h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #2f00a7;
+  }
+}
+
+.listingButtonContainer {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background-color: #2f00a7;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 3px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+}
