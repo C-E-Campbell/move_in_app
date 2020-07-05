@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const massive = require('massive');
 const { PORT, CONN } = process.env;
-const router = require('./contollers/auth.js');
+const AuthRouter = require('./contollers/auth.js');
 
 //CONNECT TO DB
 massive({
@@ -22,7 +22,7 @@ massive({
 
 // MIDDLEWARE & ROUTES
 app.use(express.json());
-app.use('/api/v1/auth', router);
+app.use('/api/v1/auth', AuthRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Live`);

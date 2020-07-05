@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     });
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   const db = req.app.get('db');
   const { commonname, username, pass } = req.body;
   const hash = bcrypt.hashSync(pass, 11);
