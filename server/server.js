@@ -9,17 +9,12 @@ const AuthRouter = require('./contollers/auth.js');
 app.use(express.static(`${__dirname}/../build`));
 
 //CONNECT TO DB
-massive(
-  {
-    connectionString: CONN,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+massive({
+  connectionString: CONN,
+  ssl: {
+    rejectUnauthorized: false,
   },
-  {
-    scripts: '../db',
-  }
-)
+})
   .then((dbInstance) => {
     app.set('db', dbInstance);
     console.log('Db Connected');
