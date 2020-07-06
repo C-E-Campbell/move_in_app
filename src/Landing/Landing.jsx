@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Landing.scss';
-//import axios from 'axios';
+import axios from 'axios';
 export default function Landing(props) {
   let history = useHistory();
   const [email, SetEmail] = useState('');
@@ -12,40 +12,40 @@ export default function Landing(props) {
 
   const login = (e) => {
     e.preventDefault();
-    history.push('/choose');
-    // axios
-    //   .post('/api/v1/auth/login', {
-    //     username: email,
-    //     pass,
-    //   })
-    //   .then((data) => {
-    //     if (data.data.accessToken) {
-    //       history.push('/choose');
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+
+    axios
+      .post('/api/v1/auth/login', {
+        username: email,
+        pass,
+      })
+      .then((data) => {
+        if (data.data.accessToken) {
+          history.push('/choose');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const register = (e) => {
     e.preventDefault();
     history.push('/choose');
-    // axios
-    //   .post('/api/v1/auth/register', {
-    //     commonname: name,
-    //     username: email,
-    //     pass: pass,
-    //   })
-    //   .then((data) => {
-    //     console.log(data);
-    //     SetEmail('');
-    //     SetPass('');
-    //     SetRegisterFlag(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      .post('/api/v1/auth/register', {
+        commonname: name,
+        username: email,
+        pass: pass,
+      })
+      .then((data) => {
+        console.log(data);
+        SetEmail('');
+        SetPass('');
+        SetRegisterFlag(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
